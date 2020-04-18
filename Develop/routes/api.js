@@ -45,3 +45,5 @@ const API = {
     return json;
   },
 };
+
+module.exports = router;
