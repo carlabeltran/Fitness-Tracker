@@ -1,3 +1,5 @@
+let workout = [];
+let myChart;
 // get all workout data from back-end
 
 fetch("/api/workouts/range")
@@ -5,6 +7,8 @@ fetch("/api/workouts/range")
     return response.json();
   })
   .then(data => {
+    // save db data on global variable
+    workout = data;
     populateChart(data);
   });
 
