@@ -24,7 +24,7 @@
       const json = await res.json();
       
       //LOGGING VALUE OF JSON VARIABLE
-      console.log("Request succeeded with JSON response get last workout", json);
+      console.log("API.JS Get Last Workout Success!!!: " , json);
       
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json[json.length - 1];
@@ -33,11 +33,11 @@
     async addExercise(data) {
       
       //LOG DATA
-      console.log("Request succeeded with JSON response", data);
+      console.log("API.JS ADD EXERCISE DATA: ", data);
     
       const id = location.search.split("=")[1];
 
-      const res = await fetch(`/api/workouts` + id, {
+      const res = await fetch(`/api/workouts/` + id, {
         
         //*GET, POST, PUT, DELETE, etc.
         method: "PUT",
@@ -50,11 +50,9 @@
 
       });
 
-      console.log("Request succeeded add exercise", data);
-
       const json = await res.json();
       
-      console.log("Request succeeded with JSON response", json);
+      console.log("API.JS: Add Exercise Success!!!: " , json);
       
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json;
@@ -73,7 +71,7 @@
 
       const json = await res.json();
       
-      console.log(json);
+      console.log("API.JS: Create Workout Success!!!: " ,json);
       
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json;
@@ -88,7 +86,7 @@
       const json = await res.json();
       
       //
-      console.log(json);
+      console.log("API.JS: Get Workout Range Success!!!: ", json);
     
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json;
