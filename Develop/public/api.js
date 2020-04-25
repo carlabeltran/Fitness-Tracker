@@ -11,7 +11,7 @@
       try {
         
         // AWAIT RESPONSE OF FETCH CALL
-        res = await fetch("/api/workouts");
+        res = await fetch("/api/workout");
       }
       //CATCH ERROR 
       catch (err) {
@@ -37,7 +37,7 @@
     
       const id = location.search.split("=")[1];
 
-      const res = await fetch("/api/workouts/" + id, {
+      const res = await fetch("/api/workout/" + id, {
         //*GET, POST, PUT, DELETE, etc.
         method: "PUT",
 
@@ -58,7 +58,7 @@
     //ASYNC FUNCTION CREATE WORKOUT
     async createWorkout(data = {}) {
       
-      const res = await fetch("/api/workouts", {
+      const res = await fetch("/api/workout", {
         
         method: "POST",
         
@@ -78,7 +78,7 @@
     async getWorkoutsInRange() {
       
       //GET REQUEST & SAVE RES IN VARIABLE
-      const res = await fetch(`/api/workouts/range`);
+      const res = await fetch(`/api/workout/range`);
     
       //AWAITING JSON VERSION RESPONSE
       const json = await res.json();
