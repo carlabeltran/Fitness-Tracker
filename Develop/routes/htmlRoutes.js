@@ -1,5 +1,5 @@
 console.log("htmlRoutes Connected!!");
-//*********** ROUTES ****************\\
+//*********** HTML ROUTES ****************\\
 const path = require("path");
 
 module.exports = function(app) {
