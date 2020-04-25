@@ -1,9 +1,24 @@
 console.log("apiRoutes Connected!!");
+
 //*********** API ROUTES ****************\\
-const db = require("../models")
+const db = require("../models");
+
 module.exports = function(app) {
     
     //*********** EXERCISE ****************\\
+    //GET
+    app.get("/api/workouts/", (req, res) => {
+        db.Workout.find({}).then(data => {
+            res.json(data);
+            console.log("Request succeeded with JSON response:", data);
+        }).catch(findError => {
+            console.log("Request succeeded with JSON response:", findError);
+        });
+
+    });
+    
+
+
     //APP POST
     app.post("/submit", ({ body }, res) => {
         console.log(body);
@@ -16,17 +31,9 @@ module.exports = function(app) {
             }).then(dbWorkout => {
                 res.json(newExercise);
             })
-                .catch((err) => {
-                    res.status(400).json(err);
-                });
-    });
-    //APP GET
-    app.get("/api/workouts/", function (req, res) {
-        db.Exercise.find().then((data) => {
-            res.json(data);
-            console.log("Request succeeded with JSON response", data);
-        });
+            .catch((err) => {
+                res.status(400).json(err);
+            });
     });
 
-
-}
+};

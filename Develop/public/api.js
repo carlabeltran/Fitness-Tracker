@@ -11,20 +11,20 @@
       try {
         
         // AWAIT RESPONSE OF FETCH CALL
-        res = await fetch("/api/workout");
+        res = await fetch("/api/workouts");
       }
       //CATCH ERROR 
-      catch (err) {
+      catch (getLastWorkoutError) {
         
         //LOG ERROR
-        console.log(err);
+        console.log(getLastWorkoutError);
       }
       
       //AWAITING JSON VERSION RESPONSE
       const json = await res.json();
       
       //LOGGING VALUE OF JSON VARIABLE
-      console.log("Request succeeded with JSON response", data);
+      console.log("Request succeeded with JSON response get last workout", json);
       
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json[json.length - 1];
@@ -37,7 +37,8 @@
     
       const id = location.search.split("=")[1];
 
-      const res = await fetch("/api/workout/" + id, {
+      const res = await fetch(`/api/workouts` + id, {
+        
         //*GET, POST, PUT, DELETE, etc.
         method: "PUT",
 
@@ -46,11 +47,14 @@
 
         //DATA TYPE MUST MATCH CONTENT TYPE HEADER
         body: JSON.stringify(data),
+
       });
+
+      console.log("Request succeeded add exercise", data);
 
       const json = await res.json();
       
-      console.log("Request succeeded with JSON response", data);
+      console.log("Request succeeded with JSON response", json);
       
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json;
@@ -58,7 +62,7 @@
     //ASYNC FUNCTION CREATE WORKOUT
     async createWorkout(data = {}) {
       
-      const res = await fetch("/api/workout", {
+      const res = await fetch(`/api/workouts`, {
         
         method: "POST",
         
@@ -78,10 +82,11 @@
     async getWorkoutsInRange() {
       
       //GET REQUEST & SAVE RES IN VARIABLE
-      const res = await fetch(`/api/workout/range`);
+      const res = await fetch(`/api/workouts/range`);
     
       //AWAITING JSON VERSION RESPONSE
       const json = await res.json();
+      
       //
       console.log(json);
     
