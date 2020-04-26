@@ -9,29 +9,29 @@
       try {
       // AWAIT RESPONSE OF FETCH CALL
       res = await fetch("/api/workouts");
-      }catch(err) {
+      } catch (err) {
         //LOG ERROR
         console.log(err);
       }
       //AWAITING JSON VERSION RESPONSE
       const json = await res.json();
       //LOGGING VALUE OF JSON VARIABLE
-      console.log("API.JS:GET LAST WORKOUT SUCCESS!!!: " , json);
+      // console.log("API.JS:GET LAST WORKOUT SUCCESS!!!: " , json);
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json[json.length - 1];
     },
     //ASYNC FUNCTION ADD EXERCISE
     async addExercise(data) {
       //LOG DATA
-      console.log("API.JS:ADD EXERCISE DATA: ", data);
+      // console.log("API.JS:ADD EXERCISE DATA: ", data);
       const id = location.search.split("=")[1];
       const res = await fetch("/api/workouts/" + id, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
       });
       const json = await res.json();
-      console.log("API.JS: ADD EXERCISE SUCCESS!!!: " , json);
+      // console.log("API.JS: ADD EXERCISE SUCCESS!!!: " , json);
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json;
     },
@@ -43,17 +43,17 @@
         headers: { "Content-Type": "application/json" }
       });
       const json = await res.json();
-      console.log("API.JS:CREATE WORKOUT SUCCESS!!!: ", json);
+      // console.log("API.JS:CREATE WORKOUT SUCCESS!!!: ", json);
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json;
     },
     //ASYNC FUNCTION GET WORKOUTS IN RANGE
     async getWorkoutsInRange() {
       //GET REQUEST & SAVE RES IN VARIABLE
-      const res = await fetch("/api/workouts/range");
+      const res = await fetch(`/api/workouts/range`);
       //AWAITING JSON VERSION RESPONSE
       const json = await res.json();
-      console.log("API.JS:GET WORKOUT RANGE SUCCESS!!!: ", json);
+      // console.log("API.JS:GET WORKOUT RANGE SUCCESS!!!: ", json);
       //ONLY PROCEED ONCE PROMISE RESOLVED
       return json;
     },
