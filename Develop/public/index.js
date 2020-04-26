@@ -1,12 +1,18 @@
 const workoutTypeEl = document.querySelector("#type");
 
+
 init();
 
 async function init() {
+
   if (location.pathname.includes("/exercise") && location.search.split("=")[1] === undefined) {
+    
     console.log(exercise);
+    
     const newWorkout = await API.createWorkout();
+    
     const workout = await API.getLastWorkout();
+    
     if (workout) {
         location.search = "?id=" + workout._id;
     } else {

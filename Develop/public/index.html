@@ -16,21 +16,42 @@
     <a href="/stats">Dashboard</a>
   </nav>
   <div class="wrapper workout">
+    
     <header>
       <h1>Fitness Tracker</h1>
     </header>
+    
     <div class="ui container workout">
       <div class="ui raised card m-auto">
+        
+        <!-- PREVIOUS WORKOUTS -->
         <div class="prev-workout">
+          
           <h3>Last Workout</h3>
+          
           <div>
+            <!-- WORK OUT STATS -->
             <div class="workout-stats"></div>
+            
+            <!-- 2 BUTTONS -->
             <div class="buttons">
+              
+              <!-- CONTINUE BUTTON -->
               <a id="continue-btn" href="/exercise?" class="huge ui blue button">Continue Workout</a>
+
+              <!-- NEW WORKOUT BUTTON -->
               <a href="/exercise" class="huge positive ui button">New Workout</a>
+            
             </div>
+            <!-- /.2 BUTTONS -->
+          
           </div>
+          <!-- /.DIV -->
+        
         </div>
+        <!-- /.PREVIOUS WORKOUTS -->
+
+        <!-- NEW WORKOUT -->
         <div class="new-workout">
           <h3>Create Your First Workout</h3>
         </div>
@@ -38,15 +59,13 @@
     </div>
   </div>
   </div>
+  <!-- ALERT -->
   <div id="toast">
     Workout Added Successfully!
   </div>
   <script src="api.js"></script>
   <script src="index.js"></script>
   <script src="workout.js"></script>
-  <!-- <script src="/api.js"></script> -->
-  <!-- <script src="/workout.js"></script>
-  <script src="/index.js"></script> -->
 </body>
 
 </html>
