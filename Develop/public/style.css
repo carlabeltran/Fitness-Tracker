@@ -36,11 +36,22 @@ body {
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+} 
+
 .wrapper {
+  /* width: 1500px;
+  height: 900px; */
   width: 1500px;
-  height: 900px;
+  height: 100%;
   overflow: hidden;
   display: -webkit-box;
   display: flex;
@@ -62,7 +73,7 @@ nav.menu {
   z-index: 3;
   font-size: 1.2rem;
   width: 200px;
-  height: 100%;
+  height: fit-content;
   background-color: #B22969;
   box-shadow: 15px 0 30px 8px rgba(0, 0, 0, 0.15);
 }
@@ -72,6 +83,10 @@ nav.menu {
   width: 200px;
   height: 160px;
   background-color: #581A51;
+}
+
+img {
+  margin-top: 30px;
 }
 
 .menu-list li {
@@ -139,7 +154,7 @@ nav.menu {
   font-size: 66.7px;
   text-align: center;
   font-stretch: expanded;
-  margin-top: 60px;
+  margin-top: 30px;
   -webkit-transform: scale(1, 1.2);
   transform: scale(1, 1.2);
 }
@@ -170,14 +185,6 @@ nav.menu {
 .weight span:nth-child(2) {
   margin-left: 5px;
   color: rgba(88, 26, 81, 0.7);
-}
-
-a,
-a:hover,
-a:active,
-a:visited {
-  text-decoration: none;
-  color: inherit;
 }
 
 header {
