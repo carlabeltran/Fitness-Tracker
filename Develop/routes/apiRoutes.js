@@ -1,74 +1,47 @@
 console.log("apiRoutes Connected!!");
 //*********** API ROUTES ****************\\
-const db = require("../models");
+const Workout = require("../models/workout");
 
 module.exports = function (app) {
-    
-    //*********** EXERCISE ****************\\
-    //GET
-    //RETRIVING THE LAST WORKOUT FROM API.JS
-    app.get("/api/workouts", (req, res) => {
-        db.Workout.find({}).then(data => {
-            res.json(data);
-            console.log("APIROUTES.JS: FIND DATA SUCCESS!!!: ", data);
+    app.get("/api/workouts", function (req, res) {
+        Workout.find().then(data => {
+            res.json(data)
+            // console.log("APIROUTES.JS: FIND DATA SUCCESS!!!: ", data);
+        }).catch(err => {
+            res.json(err)
+            // console.log("APIROUTES.JS: FIND LAST WORKOUT ERROR!!!: ", err);
         })
-            //CATCH ERROR 
-            .catch(findError => {
-            
-                res.json(findError);
-
-                console.log("APIROUTES.JS: FIND LAST WORKOUT ERROR!!!: ", findError);
-                
-            });
-
     });
-
-    //CREATING A NEW WORKOUT IN THE WORKOUT DATABASE
-    app.post("/api/workout", async (req, res) => {
-        try {
-            
-            const res = await db.Workout.createWorkout({ type: "workout" })
-            
-            res.json(res);
-        }
-        catch (workoutCreateError) {
-
-            console.log("APIROUTES.JS:CREATE NEW WORKOUT ERROR!!!: ",
-                workoutCreateError
-            );
-        
-        }
+    app.post("/api/workouts", function (req, res) {
+        Workout.create({ type: "workout" }).then(data => {
+            res.json(data)
+        }).catch(err => {
+            res.json(err)
+            // console.log("APIROUTES.JS:CREATE NEW WORKOUT ERROR!!!: ", err);
+        })
     });
-
-    //API.JS:ADDING EXERCISE TO A WORKOUT
-    app.put("/api/workouts/:id", async ({ body, params }, res) => {
-        
-        console.log(body, params);
-        
-        const workoutId = params.id;
-        
-        let savedExercises = [];
-
-        //RETRIEVES ALL SAVED EXERCISE TO CURRENT WORKOUT
-        db.Workout.find({ _id: workoutId })
-            .then(dbWorkout => {
-            
-                console.log(dbWorkout);
-            
-                savedExercises = dbWorkout[0].exercises;
-            
-                res.json(dbWorkout[0].exercises);
-            
-                const allExercises = [...savedExercises, body];
-            
-                console.log(allExercises);
-            
-                // updateWorkout(allExercises)
+    app.get("/api/workouts/range", function (req, res) {
+        Workout.find().then(data => {
+            res.json(data)
+        }).catch(err => {
+            res.json(err)
+        });
+        app.post("/api/workouts/range", function (req, res) {
+            Workout.create({}).then(data => {
+                res.json(data)
+            }).catch(err => {
+                res.json(err)
             })
-            .then(db.Workout.findByIdAndUpdate(workoutId, { exercises: body }))
-            .catch(err => {
-                res.json(err);
-            });
-    });
-
+        });
+        app.put("/api/workouts/:id", ({ body, params }, res) => {
+            // console.log(body, params);
+            Workout.findByIdAndUpdate(params.id, { $push: { exercises: body } }, { new: true, runValidators: true })
+                .then(data => {
+                    res.json(data)
+                })
+                .catch(err => {
+                    res.json(err)
+                });
+        })
+    })
 };

@@ -1,7 +1,7 @@
 // ========= PACKAGES/DEPENDENCIES ============ \\
 const express = require("express");
 const mongoose = require("mongoose");
-//MORGAN HOOKS INTO ROUTES & CONSOLE.LOGS REQ & RES
+//HOOKS INTO ROUTES & CONSOLE.LOG REQ & RES
 const logger = require("morgan");
 
 //SET HOST PORT OR 3000
@@ -28,25 +28,18 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-  })
-  //CATCH HANDLES INITIAL CONNECTION ERRORS
-  .catch((error) => handleError(error));
+  }).catch(error => handleError(error));
 
 //MONGOOSE CONNECTION STORED IN VARIABLE DB
-mongoose.connection
-//IF THERE IS AN ERROR NOTIFIY VIA CONSOLE LOG
-.on("error", (error) => {
+mongoose.connection.on("error", (error) => {
   console.log("Mongoose Connection Error!: ", error);
-})
-//SUCCESSFULLY CONNECTION NOTIFICATION VIA CONSOLE LOG
-.once("open", () => console.log("Mongoose Connection Successful!!"));
+}).once("open", () => console.log("Mongoose Connection Successful!!"));
 
 const db = require("./models");
 
 //ROUTES-EVERY REQUEST GOES THROUGH ROUTE MIDDLEWARE
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-
 
 //START SERVER  
 app.listen(PORT, () => {

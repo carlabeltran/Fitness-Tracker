@@ -3,19 +3,19 @@ console.log("htmlRoutes Connected!!");
 const path = require("path");
 
 module.exports = function(app) {
-    // INDEX HTML FILE
-    app.get("/", (req, res) => {
-        console.log("ROOT ROUTE!!");
-        res.sendFile(path.join(__dirname, "../public/index.html"));
-    });
     // EXERCISE HTML FILE
-    app.get("/exercise", (req, res) => {
-        console.log("EXERCISE ROUTE!!");
+    app.get("/exercise", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/exercise.html"));
+        console.log("EXERCISE ROUTE!!");
+    });
+    // INDEX HTML FILE
+    app.get("/", function(req, res){
+        res.sendFile(path.join(__dirname, "../public/index.html"));
+        console.log("ROOT ROUTE!!");
     });
     // STATS HTML FILE
-    app.get("/stats", (req, res) => {
-        console.log("STATS ROUTE!!");
+    app.get("/stats", function(req, res){
         res.sendFile(path.join(__dirname, "../public/stats.html"));
+        console.log("STATS ROUTE!!");
     });
 };
