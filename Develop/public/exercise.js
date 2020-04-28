@@ -35,12 +35,40 @@ function handleWorkoutTypeChange(event) {
   if (workoutType === "cardio") {
     cardioForm.classList.remove("d-none");
     resistanceForm.classList.add("d-none");
+    bikingForm.classList.add("d-none");
+    swimmingForm.classList.add("d-none");
+    flexibilityForm.classList.add("d-none");
   } else if (workoutType === "resistance") {
     resistanceForm.classList.remove("d-none");
     cardioForm.classList.add("d-none");
-  } else {
+    flexibilityForm.classList.add("d-none");
+    bikingForm.classList.add("d-none");
+    swimmingForm.classList.add("d-none");
+  } else if (workoutType === "swimming") {
+    swimmingForm.classList.remove("d-none");
     cardioForm.classList.add("d-none");
     resistanceForm.classList.add("d-none");
+    bikingForm.classList.add("d-none")
+    flexibilityForm.classList.add("d-none");
+  } else if (workoutType === "biking") {
+    bikingForm.classList.remove("d-none");
+    cardioForm.classList.add("d-none");
+    resistanceForm.classList.add("d-none");
+    swimmingForm.classList.add("d-none");
+    flexibilityForm.classList.add("d-none");
+  } else if (workoutType === "flexibility") {
+    flexibilityForm.classList.remove("d-none");
+    cardioForm.classList.add("d-none");
+    resistanceForm.classList.add("d-none");
+    swimmingForm.classList.add("d-none");
+    bikingForm.classList.add("d-none");
+  }
+  else {
+    cardioForm.classList.add("d-none");
+    resistanceForm.classList.add("d-none");
+    bikingForm.classList.add("d-none");
+    swimmingForm.classList.add("d-none");
+    flexibilityForm.classList.add("d-none");
   }
   validateInputs();
 };

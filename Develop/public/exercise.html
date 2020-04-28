@@ -5,34 +5,163 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+  <script src="https://use.fontawesome.com/0c8059d717.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Fitness Tracker</title>
+  <link rel="stylesheet" href="workout-style.css" />
+  <title>Gym Rat</title>
+  <link href="https://github.com/carlabeltran/Fitness-Tracker/blob/master/Develop/public/assets/images/Gym-Rat-Logo-Black/favicon.png?raw=true" alt="favicon logo">
 </head>
 
 <body>
-  <nav>
-    <a href="/">Fitness Tracker</a>
-    <a href="/stats">Dashboard</a>
-  </nav>
-  <div class="wrapper">
+  <div class="grid-container">
+    <div class="header">
+      <div class="logo-box">
+        <a href="/">
+          <img src="https://github.com/carlabeltran/Fitness-Tracker/blob/master/Develop/public/assets/images/Gym-Rat-Logo-Black/logo_transparent.png?raw=true" alt="gym rat logo" style="width: 200px;height: 160px;">
+        </a>
+      </div>
+      <div class="great-work">
+        <span class="text-1">ADD YOUR EXERCISE</span>
+      </div>
+    </div>
+    <!-- MENU -->
+    <div class="menu">
+      <div class="menu-list">
+        <ul>
+          <li> <a href="/">Dashboard</a></li>
+          <li> <a>Cardio</a></li>
+          <li> <a>Resistance</a></li>
+          <li> <a>Steps</a></li>
+          <li> <a>Flexibility</a></li>
+          <li> <a>Biking</a></li>
+          <li> <a>Swimming</a></li>
+        </ul>
+      </div>
+      <span class="big-man-bottom fa fa-male fa-5X"></span>
+      <div class="weight">
+        <span>120</span>
+        <span>Weight</span>
+      </div>
+    </div>
+    <!-- /.MENU -->
+    <div class="main">
+      <div class="wrapper">
+        <div class="ui container exercise">
+            <!-- FORM POST -->
+            <form action="POST">
+              <!-- WORKOUT TYPE CONTAINER -->
+              <div class="workout-type">
+                <label for="type">Exercise Type:</label>
+                <select name="type" id="type">
+                  <option disabled selected>Select Exercise Type</option>
+                  <option value="resistance">Resistance</option>
+                  <option value="cardio">Cardio</option>
+                  <option value="flexibility">Flexibility</option>
+                  <option value="swimming">Swimming</option>
+                  <option value="biking">Biking</option>
+                </select>
+              </div>
+
+              <div class="cardio-form d-none">
+                <div class="cardio-name">
+                  <label for="cardio-name">Exercise Name:</label>
+                  <input type="text" name="cardio-name" id="cardio-name" placeholder="Running" />
+                </div>
+                <!-- DISTANCE -->
+                <div class="distance">
+                  <label for="distance">Distance (miles):</label>
+                  <input type="number" name="distance" id="distance" placeholder="5" />
+                </div>
+                <!-- DURATION -->
+                <div class="duration">
+                  <label for="duration">Duration (minutes):</label>
+                  <input type="number" name="duration" id="duration" placeholder="10" />
+                </div>
+              </div>
+              <!-- /.CARDIO -->
+
+              <div class="resistance-form d-none">
+                <div class="exercise">
+                  <label for="name">Exercise Name:</label>
+                  <input type="text" name="name" id="name" placeholder="Bench Press" />
+                </div>
+                <div class="weight">
+                  <label for="weight">Weight (lbs):</label>
+                  <input type="number" name="weight" id="weight" placeholder="200" />
+                </div>
+                <div class="sets">
+                  <label for="sets">Sets:</label>
+                  <input type="number" name="sets" id="sets" placeholder="4" />
+                </div>
+                <div class="reps">
+                  <label for="reps">Reps:</label>
+                  <input type="number" name="reps" id="reps" placeholder="10" />
+                </div>
+                <div class="resistance-duration">
+                  <label for="resistance-duration">Duration (minutes):</label>
+                  <input type="number" name="resistance-duration" id="resistance-duration" placeholder="10" />
+                </div>
+              </div>
+              <!-- 2 BUTTONS -->
+              <div class="buttons">
+                <!-- COMPLETE BUTTON -->
+                <button disabled class="button complete">Complete</button>
+                <!-- ADD ANOTHER EXERCISE BUTTON -->
+                <button disabled class="button add-another">Add Exercise</button>
+              </div>
+              <!-- /.BUTTONS -->
+            </form>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <div class="workout-stats">
+      <div class="your-week-target">
+          <span class="white-text">800 Cal</span>
+          <span class="lower-text">Your Week Target</span>
+      </div>
+      <div class="divider"></div>
+      <div class="week-target">
+          <span class="white-text">85 </span>
+          <span class="lower-text">Week Target</span>
+      </div>
+      <div class="divider"></div>
+      <div class="heart-rate">
+            <span class="white-text">130 Bpm</span>
+            <span class="lower-text">Heart Rate</span>
+      </div>
+      <div class="divider"></div>
+          <div class="calories">
+            <span class="white-text">480</span>
+            <span class="lower-text">Calories</span>
+      </div>
+      <div class="divider"></div>
+          <div class="distance">
+            <span class="white-text">6.34 M</span>
+            <span class="lower-text">Distance</span>
+      </div>
+      <div class="divider"></div>
+        <div class="duration">
+            <span class="white-text">32:18:42</span>
+            <span class="lower-text">Total Workout Duration</span>
+        </div>
+      </div>
+      <!-- FOOTER -->
+    </div>
+  <!-- /.CONTAINER -->
+      <!-- <div class="wrapper">
     
-    <header>
+      <div class="ui container exercise">
       
-      <h1>Fitness Tracker</h1>
-    
-    </header>
-    
-    <div class="ui container exercise">
-      
-      <div class="ui raised card m-auto">
-        <h2>Add Your Exercise</h2>
+      <div class="ui raised card m-auto"> -->
         
         <!-- FORM POST -->
-        <form action="POST">
+        <!-- <form action="POST"> -->
           
           <!-- WORKOUT TYPE CONTAINER -->
-          <div class="workout-type">
+          <!-- <div class="workout-type">
             
             <label for="type">Exercise Type:</label>
             
@@ -40,18 +169,18 @@
             <select name="type" id="type">
               
               <option disabled selected>Select Exercise Type</option>
-              
-              <!-- RESISTANCE -->
+               
+              RESISTANCE 
               <option value="resistance">Resistance</option>
               
-              <!-- CARDIO -->
+              CARDIO 
               <option value="cardio">Cardio</option>
               
-              <!-- BALANCE -->
+              BALANCE 
               <option value="balance">Balance</option>
               
-              <!-- FLEXIBILITY -->
-              <option value="flexibility">Flexibility</option>
+               FLEXIBILITY -->
+              <!-- <option value="flexibility">Flexibility</option>
             
             </select>
           
@@ -66,24 +195,23 @@
               <input type="text" name="cardio-name" id="cardio-name" placeholder="Running" />
 
             </div>
-            
-            <!-- DISTANCE -->
-            <div class="distance">
+
+            DISTANCE -->
+            <!-- <div class="distance">
 
               <label for="distance">Distance (miles):</label>
-              <!--  -->
               <input type="number" name="distance" id="distance" placeholder="5" />
-            </div>
+            </div> -->
 
             <!-- DURATION -->
-            <div class="duration">
+            <!-- <div class="duration">
               <label for="duration">Duration (minutes):</label>
               <input type="number" name="duration" id="duration" placeholder="10" />
             </div>
 
-          </div>
+          </div> -->
           <!-- /.CARDIO -->
-          <div class="resistance-form d-none">
+          <!-- <div class="resistance-form d-none">
             <div class="exercise">
               <label for="name">Exercise Name:</label>
               <input type="text" name="name" id="name" placeholder="Bench Press" />
@@ -105,31 +233,32 @@
               <input type="number" name="resistance-duration" id="resistance-duration" placeholder="10" />
             </div>
           
-          </div>
+          </div> -->
           
           <!-- 2 BUTTONS -->
-          <div class="buttons">
+          <!-- <div class="buttons"> -->
             
             <!-- COMPLETE BUTTON -->
-            <button disabled class="huge ui blue button complete">
+            <!-- <button disabled class="huge ui blue button complete">
               Complete
-            </button>
+            </button> -->
             
             <!-- ADD ANOTHER EXERCISE BUTTON -->
-            <button disabled class="huge ui positive button add-another">
+            <!-- <button disabled class="huge ui positive button add-another">
               Add Exercise
             </button>
           
-          </div>
+          </div> -->
           <!-- /.BUTTONS -->
 
-        </form>
-      </div>
+        <!-- </form> -->
+      <!-- </div>
     </div>
-  </div>
+  </div> -->
   <div id="toast">
     Workout Added Successfully!
   </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="/api.js"></script>
   <script src="/exercise.js"></script>
   <script src="/workout.js"></script>
