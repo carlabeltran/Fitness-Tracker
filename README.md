@@ -1,5 +1,5 @@
 # ![Logo][GymRatLogo]
-[GymRatLogo]: https://github.com/carlabeltran/Fitness-Tracker/blob/master/Develop/public/assets/images/Gym-Rat-Logo/logo_transparent.png?raw=true "Gym Rat Logo"
+[GymRatLogo]: https://github.com/carlabeltran/Fitness-Tracker/blob/master/Develop/public/assets/images/Gym-Rat-Logo/facebook_cover_photo_2.png?raw=true "Gym Rat Logo"
 
 ## Welcome to Gym Rat! 👋
 
