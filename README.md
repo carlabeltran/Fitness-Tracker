@@ -15,7 +15,7 @@ Gym Rat allows the user to view, create, and track daily workouts.
 
 ## 🚀 Deployment
 
-This application is delployed at [Gym Rat](https://eattburgerapp.herokuapp.com/)
+This application is delployed at [Gym Rat](https://stormy-cliffs-02753.herokuapp.com/)
 
 ---
 
